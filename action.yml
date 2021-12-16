@@ -14,7 +14,6 @@ runs:
   steps:
     - run: echo Hello ${{ inputs.who-to-greet }}. || false
       shell: bash
-      continue-on-error: true
     - id: random-number-generator
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
       shell: bash
