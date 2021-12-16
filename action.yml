@@ -5,6 +5,8 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
+  github-token:
+    description: github-token
 outputs:
   random-number:
     description: "Random number"
@@ -21,6 +23,7 @@ runs:
       shell: bash
     - uses: actions/github-script@v3
       with:
+        github-token: ${{ inputs.github-token }}
         script: |
           github.issues.createComment({
             issue_number: context.issue.number,
